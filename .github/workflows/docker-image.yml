@@ -11,7 +11,7 @@ on:
     tags:
       - '*'
 env:
-  IMAGE_NAME: openipc-speaker-bridge
+  IMAGE_NAME: openipc-mqtt-bridge
 
 jobs:
   # Push image to GitHub Packages.
