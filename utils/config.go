@@ -21,8 +21,8 @@ type ConfigMQTT struct {
 }
 
 func GetConfig() *Config {
-	// the env registry will look for env variables that start with "INTERCOM_".
-	viper.SetEnvPrefix("OIPCSB")
+	// the env registry will look for env variables that start with "OMB_".
+	viper.SetEnvPrefix("OMB")
 	// Enable VIPER to read Environment Variables
 	viper.AutomaticEnv()                       // To get the value from the config file using key// viper package read .env
 	viper.SetConfigName("openipc-mqtt-bridge") // name of config file (without extension)
