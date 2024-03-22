@@ -40,7 +40,11 @@ func main() {
 			return
 		}
 		defer file.Close()
-		response, err := http.Post(cameraSpeakerUrl, "binary/octet-stream", file)
+		httpCli := &http.Client{}
+		req, err := http.NewRequest(http.MethodPost, cameraSpeakerUrl, file)
+		req.Header.Add("Content-Type", "binary/octet-stream")
+		req.SetBasicAuth(config.CameraUser, config.CameraPassword)
+		response, err := httpCli.Do(req)
 		if err != nil {
 			log.Error().Msgf("failed to send %s to %s with error %s", message.Payload(), cameraHost, err)
 			return

@@ -9,6 +9,8 @@ import (
 type Config struct {
 	AudioFilesPath string
 	MQTT           *ConfigMQTT
+	CameraUser     string
+	CameraPassword string
 }
 
 type ConfigMQTT struct {
@@ -49,6 +51,8 @@ func GetConfig() *Config {
 			Username:   viper.GetString("MQTT_USERNAME"),
 			Password:   viper.GetString("MQTT_PASSWORD"),
 		},
+		CameraUser:     viper.GetString("CAMERA_USERNAME"),
+		CameraPassword: viper.GetString("CAMERA_PASSWORD"),
 	}
 	return &config
 }
