@@ -40,7 +40,9 @@ func main() {
 			return
 		}
 		defer file.Close()
-		httpCli := &http.Client{}
+		httpCli := &http.Client{
+			Timeout: time.Second * 30,
+		}
 		req, err := http.NewRequest(http.MethodPost, cameraSpeakerUrl, file)
 		req.Header.Add("Content-Type", "binary/octet-stream")
 		req.SetBasicAuth(config.CameraUser, config.CameraPassword)
